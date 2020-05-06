@@ -211,10 +211,10 @@
        - kubectl --namespace kube-system patch deploy tiller-deploy -p '{"spec":{"template":{"spec":{"serviceaccount":"tiller"}}}}'
 
 
-  - name: "Install Kubernetes Dashboard"
-    when: "'running' not in k8sup.stdout"
-    shell: "{{ item }}"
-    with_items:
-      - git clone https://github.com/angudadevops/k8s_addons.git
-      - cd k8s_addons/dashboard && bash dashboard.sh
+   - name: "Install Kubernetes Dashboard"
+     when: "'running' not in k8sup.stdout"
+     shell: "{{ item }}"
+     with_items:
+       - git clone https://github.com/angudadevops/k8s_addons.git
+       - cd k8s_addons/dashboard && bash dashboard.sh
 
